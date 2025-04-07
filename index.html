@@ -4,8 +4,190 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="browser" href="python">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(19, 17, 54, 0.706);
+        }
+        .container{
+            height: 90vh;
+            width: 50%;
+            border: 1px solid black;
+            background-color: #39115136;
+            border-radius: 5px;
+            box-shadow: 5px 5px 4px rgba(19, 17, 54, 0.706);
+            & .input{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                
+            }
+        }
+        input{
+            text-align: center;
+            height: 3rem;
+            width: 40%;
+            border: 1px solid black;
+            margin: 1rem;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        input::placeholder{
+            font-size: 1rem;
+        }
+        .out{
+            display: flex;
+            place-content: center;
+        }
+        .output{
+            height: 3rem;
+            width: 80%;
+            border: 1px solid black;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 5px white;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            font-weight: bold
+        }
+        .operations{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            & button{
+                height: 3rem;
+                width: 4rem;
+                font-size: 2rem;
+                font-style: italic;
+                background-color: #280f367e;
+                border: 1px solid black;
+                color: white;
+                box-shadow: 2px 2px 3px white;
+                border-radius: 5px ;
+                margin-top: 20%;
+            }
+            & button:hover{
+                background-color: antiquewhite;
+                color: black;
+                cursor: pointer;
+            }
+            & button:active{
+                background-color: red;
+            }
+        }
+        .comment{
+            height: 3rem;
+            width: 80%;
+            /* border: 4px solid silver; */
+            display: flex;
+            place-content: center;
+            color: white;
+            margin-top: 3rem;
+            font-size: 2rem;
+            font-weight: bolder;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="input">
+            <input type="number" placeholder="enter first number" class="input1">
+            <input type="number" placeholder="enter second number" class="input2">
+        </div>
+        <div class="out">
+            <div class="output"></div>
+        </div>
+        <div class="comment"></div>
+        <div class="operations">
+            <button class="add">+</button>
+            <button class="sub">-</button>
+            <button class="mul">*</button>
+            <button class="divide">/</button>
+        </div>
+    </div>
+    <script>
+        let input1 = document.querySelector(".input1")
+        let input2 = document.querySelector(".input2")
+        let output = document.querySelector(".output")
+        let comment = document.querySelector(".comment")
+        let add = document.querySelector(".add")
+        let sub = document.querySelector(".sub")
+        let mul = document.querySelector(".mul")
+        let divide = document.querySelector(".divide")
+        add.addEventListener("click", function sum(){
+            let v1 = input1.value
+            let v2 = input2.value
+            if(v1 === "" || v2 === ""){
+                comment.innerText = `Your sum is 0.`
+                output.innerText = 0
+            } else {
+                let v1 = parseInt(input1.value)
+                let v2 = parseInt(input2.value)
+                let sum = v1+v2
+                output.innerText = sum
+                comment.innerText = `Your sum is ${sum}`
+                }
+            }
+        )
+        sub.addEventListener("click", function sub(){
+            let v1 = input1.value
+            let v2 = input2.value
+            if(v1 === "" || v2 === ""){
+                comment.innerText = `Your subtract is 0.`
+                output.innerText = 0
+            } else {
+                let v1 = parseInt(input1.value)
+                let v2 = parseInt(input2.value)
+                let sub = v1-v2
+                output.innerText = sub
+                comment.innerText = `Your subtract is ${sub}`
+                }
+            }
+        )
+        mul.addEventListener("click", function mul(){
+            let v1 = input1.value
+            let v2 = input2.value
+            if(v1 === "" || v2 === ""){
+                comment.innerText = `Your multiply is 0.`
+                output.innerText = 0
+            } else {
+                let v1 = parseInt(input1.value)
+                let v2 = parseInt(input2.value)
+                let mul = v1*v2
+                output.innerText = mul
+                comment.innerText = `Your multiply is ${mul}`
+                }
+            }
+        )
+        divide.addEventListener("click", function divide(){
+            let v1 = input1.value
+            let v2 = input2.value
+            if(v1 === "" || v2 === ""){
+                comment.innerText = `Your divide is 0.`
+                output.innerText = 0
+            } else {
+                let v1 = parseInt(input1.value)
+                let v2 = parseInt(input2.value)
+                let divide = v1/v2
+                output.innerText = divide
+                comment.innerText = `Your divide is ${divide}`
+                }
+            }
+        )
+    </script>
 </body>
 </html>
